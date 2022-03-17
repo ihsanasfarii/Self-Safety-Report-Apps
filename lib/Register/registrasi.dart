@@ -11,6 +11,16 @@ class registrasi extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Register',
+              style: TextStyle(
+                  color: Color.fromARGB(235, 27, 27, 27), fontSize: 18),
+            ),
+          ],
+        ),
       ),
     );
   }

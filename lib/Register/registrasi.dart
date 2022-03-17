@@ -15,8 +15,7 @@ class registrasi extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/background/background.png"),
-                fit: BoxFit.cover),
+                image: AssetImage("assets/bgLogin.png"), fit: BoxFit.cover),
           ),
         ),
       ),

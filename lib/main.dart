@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Login/LoginPage.dart';
+import 'Register/registrasi.dart';
 
 void main() => runApp(MyApp());
 

@@ -8,7 +8,7 @@ class splashscreen extends StatelessWidget {
     return Scaffold(
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Navigator.pushNamed(context, '/registrasi');
+            Navigator.pushNamed(context, '/LoginPage');
           },
           backgroundColor: Color.fromARGB(255, 122, 148, 219),
           child: const Icon(Icons.navigate_next),
@@ -20,7 +20,6 @@ class splashscreen extends StatelessWidget {
                   image: AssetImage("assets/homepage.png"), fit: BoxFit.cover),
             ),
           ),
-        ),
-        );
+        ));
   }
 }

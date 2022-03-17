@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Login/LoginPage.dart';
+import 'Register/splashscreen.dart';
 import 'Register/registrasi.dart';
 
 void main() => runApp(MyApp());
@@ -7,9 +8,14 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+    return MaterialApp(
+      initialRoute: '/',
+      routes: {
+        // When navigating to the "/" route, build the FirstScreen widget.
+        '/': (context) => const splashscreen(),
+        // When navigating to the "/second" route, build the SecondScreen widget.
+        '/LoginPage': (context) => LoginPage(),
+      },
     );
   }
 }

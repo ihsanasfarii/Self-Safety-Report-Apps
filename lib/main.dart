@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'Register/registrasi.dart';
 import 'Login/LoginPage.dart';
-import 'Register/splashscreen.dart';
+import 'splashscreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,7 +15,9 @@ class MyApp extends StatelessWidget {
         '/': (context) => const splashscreen(),
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/LoginPage': (context) => LoginPage(),
+        '/register': (context) => registrasi(),
       },
+      //home: Registrasi(),
     );
   }
 }

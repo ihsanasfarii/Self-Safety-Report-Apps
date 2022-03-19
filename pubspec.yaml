@@ -63,6 +63,7 @@ flutter:
     - assets/homepage.png
     - assets/icon/Next.png
     - assets/icon/Back.png
+    - assets/bgDaftarAkun.png
   
     
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -18,7 +18,7 @@ class LoginPage extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        child: Column(
+        child: ListView(
           children: <Widget>[
             Header(),
             Expanded(
@@ -31,35 +31,3 @@ class LoginPage extends StatelessWidget {
     );
   }
 }
-      // body: Container(
-//         width: double.infinity,
-//         decoration: BoxDecoration(
-//           image: DecorationImage(image: AssetImage("assets/bg.Login.png")),
-//           gradient: LinearGradient(begin: Alignment.topCenter, colors: [
-//             Color.fromARGB(255, 16, 135, 151),
-//             Color.fromARGB(255, 36, 174, 192),
-//             Color.fromARGB(255, 37, 195, 216)
-//           ]),
-//         ),
-//         child: Column(
-//           children: <Widget>[
-//             SizedBox(
-//               height: 80,
-//             ),
-//             Header(),
-//             Expanded(
-//                 child: Container(
-//               decoration: BoxDecoration(
-//                   color: Colors.white,
-//                   borderRadius: BorderRadius.only(
-//                     topLeft: Radius.circular(60),
-//                     topRight: Radius.circular(60),
-//                   )),
-//               child: InputWrapper(),
-//             ))
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }

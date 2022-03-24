@@ -7,10 +7,11 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.pushNamed(context, '/register');
-        },
-      ),
+          onPressed: () {
+            Navigator.pushNamed(context, '/register');
+          },
+          backgroundColor: Color.fromARGB(255, 122, 148, 219),
+          child: const Icon(Icons.navigate_next)),
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(

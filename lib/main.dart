@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:selfsafetyapp_test/Beranda/beranda.dart';
 import 'Register/registrasi.dart';
 import 'Login/LoginPage.dart';
 import 'splashscreen.dart';
+import 'Beranda/beranda.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,8 +18,9 @@ class MyApp extends StatelessWidget {
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/LoginPage': (context) => LoginPage(),
         '/register': (context) => registrasi(),
+        '/beranda': (context) => beranda(),
       },
-      //home: Registrasi(),
+      // home: beranda(),
     );
   }
 }

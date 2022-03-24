@@ -4,13 +4,10 @@ class beranda extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: Container(
-          child: Center(
-            child: Column(
-              children: [Text("ini beranda")],
-            ),
-          ),
+      body: Center(
+        child: Text(
+          'ini beranda',
+          textAlign: TextAlign.center,
         ),
       ),
     );

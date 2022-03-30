@@ -18,7 +18,8 @@ class MyBottomNavBar extends StatelessWidget {
       ),
       height: 80,
       decoration: BoxDecoration(
-        color: Colors.white,
+        borderRadius: BorderRadius.circular(15.0),
+        color: Color.fromARGB(255, 221, 221, 221),
         boxShadow: [
           BoxShadow(
             offset: Offset(0, -10),

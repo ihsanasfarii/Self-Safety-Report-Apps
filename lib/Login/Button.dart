@@ -15,7 +15,7 @@ class Button extends StatelessWidget {
         onPressed: () {
           Navigator.pushNamed(context, '/beranda');
         },
-        child: Text(
+        child: const Text(
           "Login",
           style: TextStyle(fontSize: 20),
         ),

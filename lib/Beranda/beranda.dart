@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:selfsafetyapp_test/navbar.dart';
 
 class beranda extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
+      bottomNavigationBar: MyBottomNavBar(),
       body: Stack(
         children: <Widget>[
           Container(

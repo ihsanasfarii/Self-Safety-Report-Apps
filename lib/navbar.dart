@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:selfsafetyapp_test/Beranda/beranda.dart';
+import 'main.dart';
 
 import '../sumber.dart';
 
@@ -41,7 +42,9 @@ class MyBottomNavBar extends StatelessWidget {
           ),
           IconButton(
             icon: SvgPicture.asset("assets/icon/Profil.svg"),
-            onPressed: () {},
+            onPressed: () {
+            Navigator.pushNamed(context, '/ProfilePage');
+            },
           ),
         ],
       ),

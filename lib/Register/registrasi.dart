@@ -13,7 +13,6 @@ class registrasi extends StatelessWidget {
             image: AssetImage('assets/bgDaftarAkun.png'),
           ),
         ),
-        
         child: ListView(
           padding: EdgeInsets.all(24),
           children: [

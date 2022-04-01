@@ -4,9 +4,9 @@ import 'Register/registrasi.dart';
 import 'Login/LoginPage.dart';
 import 'splashscreen.dart';
 import 'Beranda/beranda.dart';
-import 'Profile/profile.dart';
+import 'Profile/ProfilePage.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(MyApp());  
 
 class MyApp extends StatelessWidget {
   @override
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         '/LoginPage': (context) => LoginPage(),
         '/register': (context) => registrasi(),
         '/beranda': (context) => beranda(),
-        '/profile:': (context) => profile(),
+        '/Profile': (context) => ProfilePage(),
       },
       // home: beranda(),
     );

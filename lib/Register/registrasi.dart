@@ -16,18 +16,10 @@ class registrasi extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.all(24),
           children: [
-            Center(
+            Align(
+              alignment: Alignment.topRight,
               child: Text(
-                "Daftar",
-                style: TextStyle(
-                    color: Color.fromARGB(235, 27, 27, 27),
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
-            Center(
-              child: Text(
-                "Akun",
+                "Daftar \n Akun",
                 style: TextStyle(
                     color: Color.fromARGB(235, 27, 27, 27),
                     fontSize: 40,

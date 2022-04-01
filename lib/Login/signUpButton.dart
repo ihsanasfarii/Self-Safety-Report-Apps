@@ -16,7 +16,7 @@ class SignUp extends StatelessWidget {
               Navigator.pushNamed(context, '/register');
             },
             child: const Text(
-              "Sign Up",
+              "Daftar Akun",
               style: TextStyle(fontSize: 18),
             ),
           ),

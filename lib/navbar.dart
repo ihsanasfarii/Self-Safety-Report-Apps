@@ -38,7 +38,9 @@ class MyBottomNavBar extends StatelessWidget {
           ),
           IconButton(
             icon: SvgPicture.asset("assets/icon/Home.svg"),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/beranda');
+            },
           ),
           IconButton(
             icon: SvgPicture.asset("assets/icon/Profil.svg"),

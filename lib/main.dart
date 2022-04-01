@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         '/LoginPage': (context) => LoginPage(),
         '/register': (context) => registrasi(),
         '/beranda': (context) => beranda(),
-        '/Profile': (context) => ProfilePage(),
+        '/ProfilePage': (context) => ProfilePage(),
       },
       // home: beranda(),
     );

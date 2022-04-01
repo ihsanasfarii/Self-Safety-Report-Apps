@@ -4,6 +4,7 @@ import 'Register/registrasi.dart';
 import 'Login/LoginPage.dart';
 import 'splashscreen.dart';
 import 'Beranda/beranda.dart';
+import 'Profile/profile.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
         '/LoginPage': (context) => LoginPage(),
         '/register': (context) => registrasi(),
         '/beranda': (context) => beranda(),
+        '/profile:': (context) => profile(),
       },
       // home: beranda(),
     );

@@ -151,18 +151,7 @@ class registrasi extends StatelessWidget {
                 TextField(
                   decoration: InputDecoration(
                     hintText: 'dd/mm/yyyy',
-                    focusColor: Colors.green,
-                    filled: true,
-                    fillColor: Color.fromARGB(255, 206, 204, 204),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(100),
-                        borderSide: const BorderSide(
-                            color: Color.fromARGB(255, 0, 0, 0))),
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(100),
-                        borderSide: const BorderSide(
-                            color: Color.fromARGB(255, 0, 0, 0))),
-                  ),
+                    
                 ),
               ],
             ),
@@ -197,15 +186,17 @@ class registrasi extends StatelessWidget {
             SizedBox(
               height: 12,
             ),
-            TextButton(
-              style: ButtonStyle(
-                foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
-              ),
+            ElevatedButton(
               onPressed: () {},
               child: Text(
                 'Daftar',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            )
+            ),
           ],
         ),
       ),

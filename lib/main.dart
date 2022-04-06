@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
         // When navigating to the "/" route, build the FirstScreen widget.
@@ -25,7 +26,6 @@ class MyApp extends StatelessWidget {
         '/ProfilePage': (context) => ProfilePage(),
         '/pesan': (context) => pesan(),
       },
-      // home: beranda(),
     );
   }
 }

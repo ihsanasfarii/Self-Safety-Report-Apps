@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:selfsafetyapp_test/Register/dayDropdown.dart';
 
 class registrasi extends StatelessWidget {
   @override
@@ -147,11 +148,6 @@ class registrasi extends StatelessWidget {
                 Text('Tanggal Lahir'),
                 SizedBox(
                   height: 8,
-                ),
-                TextField(
-                  decoration: InputDecoration(
-                    hintText: 'dd/mm/yyyy',
-                    
                 ),
               ],
             ),

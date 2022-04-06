@@ -94,6 +94,8 @@ class beranda extends StatelessWidget {
               ),
               borderRadius: BorderRadius.circular(20.0)),
         ),
+
+        
         SizedBox(width: 20.0),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,

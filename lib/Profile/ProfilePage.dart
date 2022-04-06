@@ -4,6 +4,7 @@ import 'package:selfsafetyapp_test/navbar.dart';
 import 'package:flutter_svg/svg.dart';
 
 class ProfilePage extends StatelessWidget {
+  final double coverHeight = 700;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,16 +15,14 @@ class ProfilePage extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               children: [
                 Container(
-                    margin: EdgeInsets.symmetric(vertical: 300.5),
-                    alignment: Alignment.center,
-                    height: MediaQuery.of(context).size.height / 3,
-                    decoration: BoxDecoration(
-                      image: new DecorationImage(
-                        fit: BoxFit.cover,
-                        image: const NetworkImage(
-                            'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2144&q=80'),
-                      ),
-                    )),
+                  color: Colors.grey,
+                  child: Image.network(
+                    'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2144&q=80',
+                    width: double.infinity,
+                    height: coverHeight,
+                    fit: BoxFit.cover,
+                  ),
+                ),
                 Container(
                     transform: Matrix4.translationValues(0.0, 250.0, 0.0),
                     child: Stack(children: <Widget>[

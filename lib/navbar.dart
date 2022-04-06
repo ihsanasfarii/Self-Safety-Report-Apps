@@ -34,7 +34,9 @@ class MyBottomNavBar extends StatelessWidget {
         children: <Widget>[
           IconButton(
             icon: SvgPicture.asset("assets/icon/Pesan.svg"),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/pesan');
+            },
           ),
           IconButton(
             icon: SvgPicture.asset("assets/icon/Home.svg"),
@@ -45,7 +47,7 @@ class MyBottomNavBar extends StatelessWidget {
           IconButton(
             icon: SvgPicture.asset("assets/icon/Profil.svg"),
             onPressed: () {
-            Navigator.pushNamed(context, '/ProfilePage');
+              Navigator.pushNamed(context, '/ProfilePage');
             },
           ),
         ],

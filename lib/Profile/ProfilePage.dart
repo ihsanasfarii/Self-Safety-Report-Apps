@@ -45,7 +45,7 @@ class ProfilePage extends StatelessWidget {
                 Positioned(
                     bottom: 300.0,
                     child: CircleAvatar(
-                      radius: 80,
+                      radius: 79,
                       backgroundColor: Colors.black,
                       child: CircleAvatar(
                         radius: 78,

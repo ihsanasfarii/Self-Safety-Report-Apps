@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:selfsafetyapp_test/Login/LoginPage.dart';
 
 class registrasi extends StatelessWidget {
   String dropdownvalue = '1';
@@ -255,7 +256,12 @@ class registrasi extends StatelessWidget {
               height: 12,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginPage()),
+                );
+              },
               child: Text(
                 'Daftar',
                 style: TextStyle(

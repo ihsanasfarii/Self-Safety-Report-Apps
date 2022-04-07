@@ -41,7 +41,7 @@ class _InputFieldState extends State<InputField> {
     // }
     if (dataUser.length == 0) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text("Data yang anda masukkan salah atau tidak benar")));
+          content: Text("Data yang anda masukkan salah atau tidak ada")));
     } else {
       if (dataUser.length != 0) {
         Navigator.of(context).pushReplacement(

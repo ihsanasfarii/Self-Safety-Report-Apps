@@ -4,21 +4,14 @@ import 'package:selfsafetyapp_test/navbar.dart';
 import 'package:flutter_svg/svg.dart';
 
 class ProfilePage extends StatelessWidget {
-<<<<<<< HEAD
   final double coverHeight = 900;
-=======
-  final double coverHeight = 700;
->>>>>>> 7e84be19848c1982c5c2e60794f4c2df95fe3ace
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         bottomNavigationBar: MyBottomNavBar(),
         body: Stack(children: <Widget>[
-<<<<<<< HEAD
           
           
-=======
->>>>>>> 7e84be19848c1982c5c2e60794f4c2df95fe3ace
           Stack(
             
             
@@ -26,17 +19,13 @@ class ProfilePage extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               children: [
                 Container(
-<<<<<<< HEAD
                   
-=======
->>>>>>> 7e84be19848c1982c5c2e60794f4c2df95fe3ace
                   color: Colors.grey,
                   child: Image.network(
                     'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2144&q=80',
                     width: double.infinity,
                     height: coverHeight,
                     fit: BoxFit.cover,
-<<<<<<< HEAD
                   ),
 
                   
@@ -178,8 +167,6 @@ Container(
                   side: BorderSide(
                       color: Color.fromARGB(255, 255, 255, 255), 
                       width: 1.0,
-=======
->>>>>>> 7e84be19848c1982c5c2e60794f4c2df95fe3ace
                   ),
               ),
           ),
@@ -190,39 +177,14 @@ Container(
       ) {},
 ),
                 ),
-<<<<<<< HEAD
                 Positioned(
                     bottom: 450.0,
-=======
-                Container(
-                    transform: Matrix4.translationValues(0.0, 250.0, 0.0),
-                    child: Stack(children: <Widget>[
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 131, 137, 218),
-                            borderRadius: BorderRadius.circular(40)),
-                      ),
-                      Align(
-                        alignment: Alignment.topRight,
-                        child: Container(
-                          margin: EdgeInsets.symmetric(horizontal: 20.0),
-                          alignment: Alignment.center,
-                          height: 90,
-                          width: 52,
-                          child: SvgPicture.asset("assets/icon/Detail.svg"),
-                        ),
-                      ),
-                    ])),
-                Positioned(
-                    bottom: 300.0,
->>>>>>> 7e84be19848c1982c5c2e60794f4c2df95fe3ace
                     child: CircleAvatar(
                       radius: 79,
                       backgroundColor: Colors.black,
                       child: CircleAvatar(
                         radius: 78,
                         backgroundImage: NetworkImage(
-<<<<<<< HEAD
                             'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80'),
                       ),
                     )),
@@ -233,12 +195,6 @@ Container(
   
 
 
-=======
-                            'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80'),
-                      ),
-                    )),
-              ]),
->>>>>>> 7e84be19848c1982c5c2e60794f4c2df95fe3ace
         ]));
   }
 }

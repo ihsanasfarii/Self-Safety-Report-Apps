@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:hovering/hovering.dart';
 import 'Button.dart';
 import 'InputField.dart';
 
@@ -19,14 +19,6 @@ class InputWrapper extends StatelessWidget {
           SizedBox(
             height: 15,
           ),
-          Text(
-            "Lupa kata sandi anda?",
-            style: TextStyle(color: Colors.grey),
-          ),
-          SizedBox(
-            height: 32,
-          ),
-          Button(),
           SizedBox(
             height: 10,
           )

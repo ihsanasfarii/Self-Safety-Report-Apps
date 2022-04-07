@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:selfsafetyapp_test/Login/InputField.dart';
 
 class Button extends StatelessWidget {
   @override
@@ -8,6 +9,12 @@ class Button extends StatelessWidget {
       width: 250,
       margin: EdgeInsets.symmetric(horizontal: 50),
       decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+              color: Colors.black38,
+              blurRadius: 25,
+              offset: const Offset(0, 10))
+        ],
         color: Color.fromARGB(255, 111, 117, 202),
         borderRadius: BorderRadius.circular(10),
       ),

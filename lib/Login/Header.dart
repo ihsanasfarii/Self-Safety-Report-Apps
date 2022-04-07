@@ -12,7 +12,9 @@ class Header extends StatelessWidget {
             child: Text(
               "Selamat Datang,",
               style: TextStyle(
-                  color: Color.fromARGB(235, 27, 27, 27), fontSize: 18),
+                  color: Colors.black,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold),
             ),
           ),
           SizedBox(
@@ -22,7 +24,9 @@ class Header extends StatelessWidget {
             child: Text(
               "Login",
               style: TextStyle(
-                  color: Color.fromARGB(235, 27, 27, 27), fontSize: 40),
+                  color: Colors.black,
+                  fontSize: 48,
+                  fontWeight: FontWeight.bold),
             ),
           )
         ],

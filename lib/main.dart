@@ -1,7 +1,7 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:selfsafetyapp_test/Beranda/beranda.dart';
 import 'package:selfsafetyapp_test/Message/pesan.dart';
-import 'package:selfsafetyapp_test/Register/dayDropdown.dart';
 import 'Register/registrasi.dart';
 import 'Login/LoginPage.dart';
 import 'splashscreen.dart';

@@ -1,7 +1,43 @@
 import 'package:flutter/material.dart';
-import 'package:selfsafetyapp_test/Register/dayDropdown.dart';
+import 'package:selfsafetyapp_test/Login/LoginPage.dart';
 
 class registrasi extends StatelessWidget {
+  String dropdownvalue = '1';
+
+  var items = [
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '10',
+    '11',
+    '12',
+    '13',
+    '14',
+    '15',
+    '16',
+    '17',
+    '18',
+    '19',
+    '20',
+    '21',
+    '22',
+    '23',
+    '24',
+    '25',
+    '26',
+    '27',
+    '28',
+    '29',
+    '30',
+    '31'
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -149,6 +185,43 @@ class registrasi extends StatelessWidget {
                 SizedBox(
                   height: 8,
                 ),
+                Column(
+                  children: [
+                    DropdownButtonFormField(
+                      decoration: InputDecoration(
+                        focusColor: Colors.green,
+                        filled: true,
+                        fillColor: Color.fromARGB(255, 206, 204, 204),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(100),
+                            borderSide: const BorderSide(
+                                color: Color.fromARGB(255, 0, 0, 0))),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(100),
+                            borderSide: const BorderSide(
+                                color: Color.fromARGB(255, 0, 0, 0))),
+                      ),
+                      value: dropdownvalue,
+                      // Down Arrow Icon
+                      icon: const Icon(Icons.keyboard_arrow_down),
+
+                      // Array list of items
+                      items: items.map((String items) {
+                        return DropdownMenuItem(
+                          value: items,
+                          child: Text(items),
+                        );
+                      }).toList(),
+                      // After selecting the desired option,it will
+                      // change button value to selected value
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          dropdownvalue = newValue!;
+                        });
+                      },
+                    ),
+                  ],
+                ),
               ],
             ),
             SizedBox(
@@ -183,7 +256,12 @@ class registrasi extends StatelessWidget {
               height: 12,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginPage()),
+                );
+              },
               child: Text(
                 'Daftar',
                 style: TextStyle(
@@ -199,3 +277,5 @@ class registrasi extends StatelessWidget {
     );
   }
 }
+
+void setState(Null Function() param0) {}

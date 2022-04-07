@@ -14,18 +14,17 @@ class _InputFieldState extends State<InputField> {
   String url = MyUrl().getUrlDevice();
   final emailUser = new TextEditingController();
   final passwordUser = new TextEditingController();
-  String msg = '';
   bool passwordVisible = false;
 
   void prosesLogin() async {
-    var dataLogin = await http.post("$url/user/login", body: {
+    var dataLogin = await http.post("$url/login_auth/login", body: {
       "email": emailUser.text,
       "password": passwordUser.text,
     });
 
-    var dataUser = json.decode(dataLogin.body);
+    var dataAuth = json.decode(dataLogin.body);
 
-    print(dataUser);
+    print(dataAuth);
 
     // if (dataUser == null) {
     //   ScaffoldMessenger.of(context)
@@ -39,11 +38,11 @@ class _InputFieldState extends State<InputField> {
     //         .showSnackBar(SnackBar(content: Text("Data login salah")));
     //   }
     // }
-    if (dataUser.length == 0) {
+    if (dataAuth.length == 0) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text("Data yang anda masukkan salah atau tidak ada")));
     } else {
-      if (dataUser.length != 0) {
+      if (dataAuth.length != 0) {
         Navigator.of(context).pushReplacement(
             MaterialPageRoute(builder: (context) => beranda()));
       }
@@ -146,10 +145,6 @@ class _InputFieldState extends State<InputField> {
             ),
           ),
         ),
-        Text(
-          msg,
-          style: TextStyle(fontSize: 20, color: Colors.red),
-        )
       ],
     ));
   }

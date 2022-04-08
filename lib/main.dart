@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:selfsafetyapp_test/Beranda/beranda.dart';
 import 'package:selfsafetyapp_test/Message/pesan.dart';
+import 'package:selfsafetyapp_test/Popup/popupmassage.dart';
 import 'Register/registrasi.dart';
 import 'Login/LoginPage.dart';
 import 'splashscreen.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         '/beranda': (context) => beranda(),
         '/ProfilePage': (context) => ProfilePage(),
         '/pesan': (context) => pesan(),
+        '/popupmessage': (context) => popupmessage(),
       },
     );
   }

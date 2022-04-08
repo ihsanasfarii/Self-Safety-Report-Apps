@@ -28,7 +28,7 @@ class beranda extends StatelessWidget {
                       alignment: Alignment.center,
                       height: 90,
                       width: 52,
-                      child: SvgPicture.asset("assets/icon/Detail.svg"),
+                      child: SvgPicture.asset("assets/icon/Notif.svg"),
                     ),
                   ),
                   Text(

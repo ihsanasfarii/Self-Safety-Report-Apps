@@ -8,6 +8,7 @@ import 'Login/LoginPage.dart';
 import 'splashscreen.dart';
 import 'Beranda/beranda.dart';
 import 'Profile/ProfilePage.dart';
+import 'Message/pesan.dart';
 import 'package:flutter_responsive/flutter_responsive.dart';
 
 void main() => runApp(MyApp());

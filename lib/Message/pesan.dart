@@ -12,9 +12,10 @@ class _pesanState extends State<pesan> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: Center(
-          child: Column(
-            children: [Text("ini pesan")],
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/halamanchat.png'),
+            fit: BoxFit.cover,
           ),
         ),
       ),

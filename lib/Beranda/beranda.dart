@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:selfsafetyapp_test/Popup/popupmessage.dart';
 import 'package:selfsafetyapp_test/navbar.dart';
 
 class beranda extends StatelessWidget {
@@ -22,14 +23,21 @@ class beranda extends StatelessWidget {
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: Container(
-                      alignment: Alignment.center,
-                      height: 90,
-                      width: 52,
-                      child: SvgPicture.asset("assets/icon/Notif.svg"),
-                    ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) {
+                        return popupmessage();
+                      }));
+                    },
+                    child: Align(
+                        alignment: Alignment.topRight,
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: 90,
+                          width: 52,
+                          child: SvgPicture.asset("assets/icon/Notif.svg"),
+                        )),
                   ),
                   Text(
                     "Ingin Periksa Bencana? Bergabunglah Bersama Kami",

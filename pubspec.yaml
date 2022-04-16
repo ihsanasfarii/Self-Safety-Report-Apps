@@ -42,6 +42,7 @@ dependencies:
   curved_navigation_bar: ^1.0.1
   flutter_responsive: ^1.1.0
   http: ^0.12.0+2
+  flutter_icons: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +73,7 @@ flutter:
     - assets/icon/Next.png
     - assets/icon/Back.png
     - assets/bgDaftarAkun.png
+    - assets/halamanchat.png
     - assets/icon/
     - assets/images/
   

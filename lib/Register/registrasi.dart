@@ -13,7 +13,6 @@ class _registrasiState extends State<registrasi> {
   String url = MyUrl().getUrlDevice();
   // Date Time Picker Initiation
   DateTime selectedDate = new DateTime.now();
-
   final emailUser = new TextEditingController();
   final passwordUser = new TextEditingController();
   final namaUser = new TextEditingController();
@@ -28,7 +27,7 @@ class _registrasiState extends State<registrasi> {
       "email": emailUser.text,
       "password": passwordUser.text,
       "no_telp": no_telpUser.text,
-      // "tgl_lahir": ,
+      "tgl_lahir": selectedDate.toString(),
       "lokasi": lokasiUser.text,
     });
   }

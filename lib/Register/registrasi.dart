@@ -3,6 +3,7 @@ import 'package:selfsafetyapp_test/Login/LoginPage.dart';
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 import 'package:selfsafetyapp_test/helperurl.dart';
+import 'package:selfsafetyapp_test/Login/LoginPage.dart';
 
 class registrasi extends StatefulWidget {
   @override
@@ -29,6 +30,18 @@ class _registrasiState extends State<registrasi> {
       "no_telp": no_telpUser.text,
       "tgl_lahir": selectedDate.toString(),
       "lokasi": lokasiUser.text,
+    });
+
+    Navigator.of(context)
+        .pushReplacement(MaterialPageRoute(builder: (context) => LoginPage()));
+
+    ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Selamat Akun Anda Berhasil Dibuat")));
+  }
+
+  void togglePassword() {
+    setState(() {
+      passwordVisible = !passwordVisible;
     });
   }
 
@@ -127,9 +140,18 @@ class _registrasiState extends State<registrasi> {
                 ),
                 TextField(
                   controller: passwordUser,
+                  obscureText: !passwordVisible,
                   decoration: InputDecoration(
                     focusColor: Colors.green,
                     hintText: 'password',
+                    suffixIcon: IconButton(
+                        color: Colors.grey,
+                        onPressed: togglePassword,
+                        icon: Icon(
+                          passwordVisible
+                              ? Icons.visibility_off_outlined
+                              : Icons.visibility_off_outlined,
+                        )),
                     filled: true,
                     fillColor: Color.fromARGB(255, 206, 204, 204),
                     focusedBorder: OutlineInputBorder(

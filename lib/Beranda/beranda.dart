@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:selfsafetyapp_test/Beranda/TiledViewNews.dart';
 import 'package:selfsafetyapp_test/Beranda/slider.dart';
 import 'package:selfsafetyapp_test/Popup/popupmessage.dart';
 import 'package:selfsafetyapp_test/navbar.dart';
@@ -21,7 +22,7 @@ class beranda extends StatelessWidget {
                     image: AssetImage("assets/images/Background.png"))),
           ),
           SafeArea(
-              child: Padding(
+              child: SingleChildScrollView(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -91,6 +92,13 @@ class beranda extends StatelessWidget {
                   SizedBox(
                     height: 5,
                   ),
+                  Container(
+                    padding: EdgeInsets.all(10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [TiledNewsView()],
+                    ),
+                  )
                 ]),
           )),
         ],

@@ -13,7 +13,7 @@ class StaticValues {
         source: "CNN Indonesia",
         sourceImage:
             "https://cdn.cnnindonesia.com/cnnid/images/logo.png?v=10.4.11",
-        time: "Minggu, 15 Mei 2022 20:48 WIB"),
+        time: "Minggu, 15 Mei 2022"),
     News(
         title: "Pemerintah Diminta Tingkatkan Kesiagaan Hadapi Bencana Alam",
         image:
@@ -21,7 +21,7 @@ class StaticValues {
         source: "Detik News",
         sourceImage:
             "https://akcdn.detik.net.id/community/media/visual/2019/06/28/2846568b-3057-49c6-8125-ff5135d07312.png?d=1",
-        time: "Jumat, 27 Mei 2022 17:33 WIB",
+        time: "Jumat, 27 Mei 2022",
         descrption:
             "Jakarta - Upaya menghadapi potensi bencana alam dinilai Wakil Ketua MPR RI Letari Moerdijat harus terus ditingkatkan. Ia mengatakan setiap daerah di Indonesia harus memiliki kajian risiko dan rencana penanggulangan untuk menghadapi bencana alam di Tanah Air. Kesiapan daerah menghadapi potensi bencana alam harus terus ditingkatkan di tengah dampak perubahan iklim yang menyebabkan kondisi cuaca ekstrem di berbagai daerah di Indonesia, kata Lestari dalam keterangannya, Jumat (27/5/2022)"),
     News(
@@ -32,7 +32,7 @@ class StaticValues {
         source: "Aljazeera",
         sourceImage:
             "https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/Aljazeera_eng.svg/1920px-Aljazeera_eng.svg.png",
-        time: "31 May 2022",
+        time: "Selasa, 31 Mei 2022",
         descrption:
             "The death toll from flooding and landslides following torrential rains in northeast Brazil has reached 100, the AFP news agency and Brazil’s Folha de S Paulo newspaper have reported, citing local officials. Mudslides have devastated entire impoverished communities outside the city of Recife, the capital of Pernambuco state. Disaster management officials for the state said on Tuesday that at least 14 people remain missing, AFP reported."),
     News(
@@ -43,17 +43,14 @@ class StaticValues {
         source: "Mitchell Republic",
         sourceImage:
             "https://cdn.forumcomm.com/dims4/default/02c7bc7/2147483647/strip/true/crop/620x220+0+0/resize/225x80!/quality/90/?url=https%3A%2F%2Fforum-communications-production-web.s3.amazonaws.com%2Fbrightspot%2F16%2F30%2Ff89967d949e1adb8fcc70ff18a0a%2Fmitchellrepublic.png",
-        time: "May 31, 2022 03:55 PM",
+        time: "Selasa, 31 Mei, 2022",
         descrption:
             "HURON, S.D. — Agricultural operations in South Dakota have been significantly impacted by a severe weather event that included straight-line winds, causing wide-spread, extensive destruction across the state. The U.S. Department of Agriculture (USDA) has technical and financial assistance available to help farmers and livestock producers recover from these adverse weather events. Impacted producers should contact their local USDA Service Center to report losses and learn more about program options available to assist in their recovery from crop, land, infrastructure, and livestock losses and damages.")
   ];
 
   List<Category> categories = [
     Category(
-      name: "Indonesia",
-    ),
-    Category(
-      name: "Luar Negeri",
+      name: "Terbaru",
     ),
   ];
 }

@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:selfsafetyapp_test/Beranda/gabungan.dart';
+import 'package:selfsafetyapp_test/Beranda/gabunganBerita.dart';
 
 class NewsCarousel extends StatelessWidget {
   NewsCarousel({Key? key}) : super(key: key);

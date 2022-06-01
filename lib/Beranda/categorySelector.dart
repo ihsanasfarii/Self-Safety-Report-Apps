@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:selfsafetyapp_test/Beranda/gabungan.dart';
+import 'package:selfsafetyapp_test/Beranda/gabunganBerita.dart';
 import 'package:selfsafetyapp_test/Beranda/category.dart';
 
 class CategorySelector extends StatefulWidget {

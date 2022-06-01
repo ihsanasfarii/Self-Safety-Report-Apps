@@ -1,21 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:selfsafetyapp_test/Beranda/beranda.dart';
 import 'package:selfsafetyapp_test/Message/pesan.dart';
-<<<<<<< Updated upstream
 import 'Popup/popupmessage.dart';
-=======
-import 'package:selfsafetyapp_test/Popup/popupmessage.dart';
->>>>>>> Stashed changes
 import 'Register/registrasi.dart';
 import 'Login/LoginPage.dart';
 import 'splashscreen.dart';
 import 'Beranda/beranda.dart';
 import 'Profile/ProfilePage.dart';
-<<<<<<< Updated upstream
 import 'Message/pesan.dart';
-=======
-import 'Popup/popupmessage.dart';
->>>>>>> Stashed changes
 import 'package:flutter_responsive/flutter_responsive.dart';
 
 void main() => runApp(MyApp());

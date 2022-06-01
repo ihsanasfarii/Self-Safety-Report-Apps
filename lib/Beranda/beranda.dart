@@ -23,6 +23,7 @@ class beranda extends StatelessWidget {
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
+<<<<<<< Updated upstream
                   GestureDetector(
                     onTap: () {
                       Navigator.of(context)
@@ -32,6 +33,14 @@ class beranda extends StatelessWidget {
                     },
                     child: Align(
                         alignment: Alignment.topRight,
+=======
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/popupmessage');
+                        },
+>>>>>>> Stashed changes
                         child: Container(
                           alignment: Alignment.center,
                           height: 90,

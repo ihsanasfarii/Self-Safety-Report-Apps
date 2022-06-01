@@ -208,7 +208,7 @@ class _registrasiState extends State<registrasi> {
                 Center(
                   child: Column(
                     children: <Widget>[
-                      OutlineButton(
+                      FlatButton(
                         onPressed: () {
                           showDatePicker(
                             context: context,

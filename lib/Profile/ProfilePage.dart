@@ -131,7 +131,7 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: EdgeInsets.fromLTRB(20, 200, 20, 280),
+                padding: EdgeInsets.fromLTRB(20, 200, 20, 190),
                 child: ElevatedButton(
                   style: ButtonStyle(
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -149,7 +149,7 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
               Positioned(
-                bottom: 450.0,
+                bottom: 350.0,
                 child: CircleAvatar(
                   radius: 79,
                   backgroundColor: Colors.black,

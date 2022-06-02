@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:selfsafetyapp_test/Beranda/beranda.dart';
 import 'package:http/http.dart' as http;

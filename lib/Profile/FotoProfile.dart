@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:html';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:selfsafetyapp_test/Beranda/beranda.dart';
 import 'package:http/http.dart' as http;
 import 'package:selfsafetyapp_test/helperurl.dart';
 
@@ -11,6 +11,7 @@ class ayam extends StatefulWidget {
 }
 
 class _ayamState extends State<ayam> {
+  String url = MyUrl().getUrlDevice();
   Future<List> AmbilData() async {
     final Response = await http.get("$url/flutter-ci/Ambildata.php");
     return json.decode(Response.body);

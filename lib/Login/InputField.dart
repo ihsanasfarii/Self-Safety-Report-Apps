@@ -14,39 +14,58 @@ class _InputFieldState extends State<InputField> {
   final emailUser = new TextEditingController();
   final passwordUser = new TextEditingController();
   bool passwordVisible = false;
-
+ 
   void prosesLogin() async {
-    var dataLogin = await http.post("$url/login_auth/login", body: {
-      "email": emailUser.text,
-      "password": passwordUser.text,
-    });
+    try {
+      var dataLogin = await http.post("$url/login_auth/login", body: {
+        "email": emailUser.text,
+        "password": passwordUser.text,
+      });
 
-    var dataAuth = json.decode(dataLogin.body);
-
-    print(dataAuth);
-
-    // if (dataUser == null) {
-    //   ScaffoldMessenger.of(context)
-    //       .showSnackBar(SnackBar(content: Text("Login gagal")));
-    // } else {
-    //   if (dataUser != null) {
-    //     Navigator.of(context).pushReplacement(
-    //         MaterialPageRoute(builder: (context) => beranda()));
-    //   } else {
-    //     ScaffoldMessenger.of(context)
-    //         .showSnackBar(SnackBar(content: Text("Data login salah")));
-    //   }
-    // }
-    if (dataAuth.length == 0) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text("Data yang anda masukkan salah atau tidak ada")));
-    } else {
+      var dataAuth = json.decode(dataLogin.body);
+      print(dataAuth);
       if (dataAuth.length != 0) {
         Navigator.of(context).pushReplacement(
             MaterialPageRoute(builder: (context) => beranda()));
       }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(
+              "Data yang anda masukkan salah atau tidak ada"))); //Handle all other exceptions
     }
   }
+  // void prosesLogin() async {
+  //   var dataLogin = await http.post("$url/login_auth/login", body: {
+  //     "email": emailUser.text,
+  //     "password": passwordUser.text,
+  //   });
+
+  //   var dataAuth = json.decode(dataLogin.body);
+
+  //   print(dataAuth);
+
+  //   // if (dataUser == null) {
+  //   //   ScaffoldMessenger.of(context)
+  //   //       .showSnackBar(SnackBar(content: Text("Login gagal")));
+  //   // } else {
+  //   //   if (dataUser != null) {
+  //   //     Navigator.of(context).pushReplacement(
+  //   //         MaterialPageRoute(builder: (context) => beranda()));
+  //   //   } else {
+  //   //     ScaffoldMessenger.of(context)
+  //   //         .showSnackBar(SnackBar(content: Text("Data login salah")));
+  //   //   }
+  //   // }
+  //   if (dataAuth.length == 0) {
+  //     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+  //         content: Text("Data yang anda masukkan salah atau tidak ada")));
+  //   } else {
+  //     if (dataAuth.length != 0) {
+  //       Navigator.of(context).pushReplacement(
+  //           MaterialPageRoute(builder: (context) => beranda()));
+  //     }
+  //   }
+  // }
 
   void togglePassword() {
     setState(() {

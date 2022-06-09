@@ -2,7 +2,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:selfsafetyapp_test/Beranda/beranda.dart';
+import 'package:selfsafetyapp_test/Profile/ProfilePage.dart';
 import 'package:selfsafetyapp_test/helperurl.dart';
+import 'package:selfsafetyapp_test/Profile/FotoProfile.dart';
 
 class InputField extends StatefulWidget {
   @override
@@ -14,58 +16,28 @@ class _InputFieldState extends State<InputField> {
   final emailUser = new TextEditingController();
   final passwordUser = new TextEditingController();
   bool passwordVisible = false;
- 
+  static late String value;
   void prosesLogin() async {
-    try {
-      var dataLogin = await http.post("$url/login_auth/login", body: {
-        "email": emailUser.text,
-        "password": passwordUser.text,
-      });
+    var dataLogin = await http.post("$url/login_auth/login", body: {
+      "email": emailUser.text,
+      "password": passwordUser.text,
+    });
 
-      var dataAuth = json.decode(dataLogin.body);
-      print(dataAuth);
-      if (dataAuth.length != 0) {
-        Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => beranda()));
-      }
-    } catch (e) {
+    var dataAuth = json.decode(dataLogin.body);
+
+    print(dataAuth);
+    if (dataAuth.length == 0) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(
-              "Data yang anda masukkan salah atau tidak ada"))); //Handle all other exceptions
+          content: Text("Data yang anda masukkan salah atau tidak ada")));
+    } else {
+      if (dataAuth.length != 0) {
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
+            builder: (context) => ProfilePage(
+                  title: value,
+                )));
+      }
     }
   }
-  // void prosesLogin() async {
-  //   var dataLogin = await http.post("$url/login_auth/login", body: {
-  //     "email": emailUser.text,
-  //     "password": passwordUser.text,
-  //   });
-
-  //   var dataAuth = json.decode(dataLogin.body);
-
-  //   print(dataAuth);
-
-  //   // if (dataUser == null) {
-  //   //   ScaffoldMessenger.of(context)
-  //   //       .showSnackBar(SnackBar(content: Text("Login gagal")));
-  //   // } else {
-  //   //   if (dataUser != null) {
-  //   //     Navigator.of(context).pushReplacement(
-  //   //         MaterialPageRoute(builder: (context) => beranda()));
-  //   //   } else {
-  //   //     ScaffoldMessenger.of(context)
-  //   //         .showSnackBar(SnackBar(content: Text("Data login salah")));
-  //   //   }
-  //   // }
-  //   if (dataAuth.length == 0) {
-  //     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-  //         content: Text("Data yang anda masukkan salah atau tidak ada")));
-  //   } else {
-  //     if (dataAuth.length != 0) {
-  //       Navigator.of(context).pushReplacement(
-  //           MaterialPageRoute(builder: (context) => beranda()));
-  //     }
-  //   }
-  // }
 
   void togglePassword() {
     setState(() {
@@ -93,6 +65,9 @@ class _InputFieldState extends State<InputField> {
           child: TextFormField(
             controller: emailUser,
             keyboardType: TextInputType.emailAddress,
+            onChanged: (text) {
+              value = text;
+            },
             decoration: InputDecoration(
                 hintText: "Masukkan Email",
                 hintStyle: TextStyle(color: Colors.grey),

@@ -9,14 +9,16 @@ import 'package:selfsafetyapp_test/Profile/FotoProfile.dart';
 class InputField extends StatefulWidget {
   @override
   _InputFieldState createState() => _InputFieldState();
+  static late String value;
 }
 
 class _InputFieldState extends State<InputField> {
   String url = MyUrl().getUrlDevice();
   final emailUser = new TextEditingController();
+  // static late String value;
   final passwordUser = new TextEditingController();
   bool passwordVisible = false;
-  static late String value;
+
   void prosesLogin() async {
     var dataLogin = await http.post("$url/login_auth/login", body: {
       "email": emailUser.text,
@@ -33,7 +35,7 @@ class _InputFieldState extends State<InputField> {
       if (dataAuth.length != 0) {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
             builder: (context) => ProfilePage(
-                  title: value,
+                  title: InputField.value,
                 )));
       }
     }
@@ -66,7 +68,7 @@ class _InputFieldState extends State<InputField> {
             controller: emailUser,
             keyboardType: TextInputType.emailAddress,
             onChanged: (text) {
-              value = text;
+              InputField.value = text;
             },
             decoration: InputDecoration(
                 hintText: "Masukkan Email",

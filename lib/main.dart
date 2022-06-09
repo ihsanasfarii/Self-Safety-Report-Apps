@@ -11,10 +11,13 @@ import 'Profile/ProfilePage.dart';
 import 'Message/pesan.dart';
 import 'package:flutter_responsive/flutter_responsive.dart';
 import 'Profile/FotoProfile.dart';
+import 'Profile/ProfilePage.dart';
+import 'Login/InputField.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  get value => InputField.value;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,12 +30,10 @@ class MyApp extends StatelessWidget {
         '/LoginPage': (context) => LoginPage(),
         '/register': (context) => registrasi(),
         '/beranda': (context) => beranda(),
-        '/ProfilePage': (context) => ProfilePage(title: ""),
+        '/ProfilePage': (context) => ProfilePage(title: value),
         '/pesan': (context) => pesan(),
         '/popupmessage': (context) => popupmessage(),
-        '/FotoProfile': (context) => ayam(
-              Email: '',
-            ),
+        '/FotoProfile': (context) => ayam(),
       },
     );
   }

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "464315446084",
+    "project_id": "ssra-proting",
+    "storage_bucket": "ssra-proting.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:464315446084:android:c723a980267c49d6e9dd11",
+        "android_client_info": {
+          "package_name": "com.example.selfsafetyapp_test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "464315446084-nai0k2bdsb7b2109a03u01621ttkvl8a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvvueSUSYptg9hMEf1KJooiDF9Ygcktek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "464315446084-nai0k2bdsb7b2109a03u01621ttkvl8a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

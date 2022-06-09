@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:selfsafetyapp_test/Beranda/beranda.dart';
+import 'package:selfsafetyapp_test/Login/InputField.dart';
 import 'package:selfsafetyapp_test/Message/pesan.dart';
 import 'Popup/popupmessage.dart';
 import 'Register/registrasi.dart';
@@ -13,7 +14,8 @@ import 'package:flutter_responsive/flutter_responsive.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'db.dart';
+import 'Profile/FotoProfile.dart';
+import 'Login/InputField.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp();
@@ -56,6 +58,7 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
+  get value => InputField.value;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -66,9 +69,10 @@ class MyApp extends StatelessWidget {
         '/LoginPage': (context) => LoginPage(),
         '/register': (context) => registrasi(),
         '/beranda': (context) => beranda(),
-        '/ProfilePage': (context) => ProfilePage(),
+        '/ProfilePage': (context) => ProfilePage(title: value),
         '/pesan': (context) => pesan(),
         '/popupmessage': (context) => popupmessage(),
+        '/FotoProfile': (context) => ayam(),
       },
     );
   }

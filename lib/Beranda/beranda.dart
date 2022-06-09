@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:selfsafetyapp_test/Beranda/TiledViewNews.dart';
+import 'package:selfsafetyapp_test/Beranda/slider.dart';
 import 'package:selfsafetyapp_test/Popup/popupmessage.dart';
 import 'package:selfsafetyapp_test/navbar.dart';
+
+import 'categorySelector.dart';
 
 class beranda extends StatelessWidget {
   @override
@@ -12,13 +16,13 @@ class beranda extends StatelessWidget {
       body: Stack(
         children: <Widget>[
           Container(
-            height: size.height * .51,
+            height: size.height * .37,
             decoration: BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage("assets/images/Background.png"))),
           ),
           SafeArea(
-              child: Padding(
+              child: SingleChildScrollView(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -79,48 +83,26 @@ class beranda extends StatelessWidget {
                       )
                     ]),
                   ),
-                  _cardItem(1),
-                  _cardItem(2),
+                  SizedBox(height: 5),
+                  NewsCarousel(),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  CategorySelector(),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [TiledNewsView()],
+                    ),
+                  )
                 ]),
           )),
         ],
       ),
-    );
-  }
-
-  _cardItem(Image) {
-    return Padding(
-      padding: EdgeInsets.all(10.0),
-      child: Row(children: <Widget>[
-        Container(
-          width: 100.0,
-          height: 100.0,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/images/image1.png"),
-                fit: BoxFit.cover,
-              ),
-              borderRadius: BorderRadius.circular(20.0)),
-        ),
-        SizedBox(width: 20.0),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              "Gempa Kabupaten Majene",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18.0,
-              ),
-            ),
-            SizedBox(height: 10.0),
-            Text(
-              "Lanjut Membaca >",
-              style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
-            )
-          ],
-        )
-      ]),
     );
   }
 }

@@ -2,16 +2,20 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:selfsafetyapp_test/Beranda/beranda.dart';
+import 'package:selfsafetyapp_test/Profile/ProfilePage.dart';
 import 'package:selfsafetyapp_test/helperurl.dart';
+import 'package:selfsafetyapp_test/Profile/FotoProfile.dart';
 
 class InputField extends StatefulWidget {
   @override
   _InputFieldState createState() => _InputFieldState();
+  static late String value;
 }
 
 class _InputFieldState extends State<InputField> {
   String url = MyUrl().getUrlDevice();
   final emailUser = new TextEditingController();
+  // static late String value;
   final passwordUser = new TextEditingController();
   bool passwordVisible = false;
 
@@ -24,26 +28,15 @@ class _InputFieldState extends State<InputField> {
     var dataAuth = json.decode(dataLogin.body);
 
     print(dataAuth);
-
-    // if (dataUser == null) {
-    //   ScaffoldMessenger.of(context)
-    //       .showSnackBar(SnackBar(content: Text("Login gagal")));
-    // } else {
-    //   if (dataUser != null) {
-    //     Navigator.of(context).pushReplacement(
-    //         MaterialPageRoute(builder: (context) => beranda()));
-    //   } else {
-    //     ScaffoldMessenger.of(context)
-    //         .showSnackBar(SnackBar(content: Text("Data login salah")));
-    //   }
-    // }
     if (dataAuth.length == 0) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text("Data yang anda masukkan salah atau tidak ada")));
     } else {
       if (dataAuth.length != 0) {
-        Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => beranda()));
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
+            builder: (context) => ProfilePage(
+                  title: InputField.value,
+                )));
       }
     }
   }
@@ -74,6 +67,9 @@ class _InputFieldState extends State<InputField> {
           child: TextFormField(
             controller: emailUser,
             keyboardType: TextInputType.emailAddress,
+            onChanged: (text) {
+              InputField.value = text;
+            },
             decoration: InputDecoration(
                 hintText: "Masukkan Email",
                 hintStyle: TextStyle(color: Colors.grey),

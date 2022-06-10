@@ -58,6 +58,7 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
+  FirebaseMessaging messaging = FirebaseMessaging.instance;
   get value => InputField.value;
   @override
   Widget build(BuildContext context) {
@@ -89,14 +90,6 @@ class Application extends StatefulWidget {
 
 class _Application extends State<Application> {
   String? _token;
-  //List<Map<String, dynamic>> users = [];
-
-  // void refreshList() async {
-  //   final data = await UserDatabase.getDataUser();
-  //   setState(() {
-  //     users = data;
-  //   });
-  // }
 
   void initState() {
     super.initState();
@@ -141,24 +134,6 @@ class _Application extends State<Application> {
 
   @override
   Widget build(BuildContext context) {
-    // final children = <Widget>[];
-    // for (var i = 0; i < users.length; i++) {
-    //   children.add(GestureDetector(
-    //     onTap: () {},
-    //     onLongPress: () {},
-    //     child: Container(
-    //       width: double.infinity,
-    //       decoration: BoxDecoration(
-    //           border: Border(
-    //               bottom: BorderSide(
-    //                   width: 0.5, color: Color.fromARGB(255, 153, 153, 153)))),
-    //       child: new ListTile(
-    //         title: Text(users[i]['nama']),
-    //         subtitle: Text(users[i]['nim']),
-    //       ),
-    //     ),
-    //   ));
-    // }
     return Scaffold(
         body: Container(
             height: double.infinity,

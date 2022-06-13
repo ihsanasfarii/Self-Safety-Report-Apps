@@ -1,8 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:selfsafetyapp_test/Beranda/beranda.dart';
-import 'package:selfsafetyapp_test/Login/InputField.dart';
-import 'package:selfsafetyapp_test/Message/pesan.dart';
+
 import 'Popup/popupmessage.dart';
 import 'Register/registrasi.dart';
 import 'Login/LoginPage.dart';
@@ -10,12 +8,14 @@ import 'splashscreen.dart';
 import 'Beranda/beranda.dart';
 import 'Profile/ProfilePage.dart';
 import 'Message/pesan.dart';
+import 'Profile/FotoProfile.dart';
+import 'Login/InputField.dart';
+import 'Message/pesan.dart';
+
 import 'package:flutter_responsive/flutter_responsive.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'Profile/FotoProfile.dart';
-import 'Login/InputField.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp();
@@ -58,8 +58,6 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
-  FirebaseMessaging messaging = FirebaseMessaging.instance;
-  get value => InputField.value;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -70,13 +68,18 @@ class MyApp extends StatelessWidget {
         '/LoginPage': (context) => LoginPage(),
         '/register': (context) => registrasi(),
         '/beranda': (context) => beranda(),
-        '/ProfilePage': (context) => ProfilePage(title: value),
+        '/ProfilePage': (context) => ProfilePage(
+              title: '',
+            ),
         '/pesan': (context) => pesan(),
         '/popupmessage': (context) => popupmessage(),
         '/FotoProfile': (context) => ayam(),
       },
     );
   }
+
+  FirebaseMessaging messaging = FirebaseMessaging.instance;
+  get value => InputField.value;
 }
 
 // Crude counter to make messages unique

@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:selfsafetyapp_test/Admin/InputBerita.dart';
 
 import 'Popup/popupmessage.dart';
 import 'Register/registrasi.dart';
@@ -11,7 +12,7 @@ import 'Message/pesan.dart';
 import 'Profile/FotoProfile.dart';
 import 'Login/InputField.dart';
 import 'Message/pesan.dart';
-
+import 'Admin/HalamanAdmin.dart';
 import 'package:flutter_responsive/flutter_responsive.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -69,11 +70,13 @@ class MyApp extends StatelessWidget {
         '/register': (context) => registrasi(),
         '/beranda': (context) => beranda(),
         '/ProfilePage': (context) => ProfilePage(
-              title: '',
+              title: value,
             ),
         '/pesan': (context) => pesan(),
         '/popupmessage': (context) => popupmessage(),
         '/FotoProfile': (context) => ayam(),
+        '/HalamanBeranda': (context) => HalamanAdmin(),
+        '/InputBerita': (context) => InputBerita(),
       },
     );
   }

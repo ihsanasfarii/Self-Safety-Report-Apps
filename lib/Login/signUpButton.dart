@@ -11,7 +11,7 @@ class SignUp extends StatelessWidget {
             'Belum punya akun?',
             style: TextStyle(
                 color: Color.fromARGB(255, 68, 67, 67),
-                fontSize: 14,
+                fontSize: 16,
                 fontWeight: FontWeight.w400),
           ),
           TextButton(
@@ -23,6 +23,20 @@ class SignUp extends StatelessWidget {
               style: TextStyle(fontSize: 20),
             ),
           ),
+          SizedBox(
+            height: 40,
+          ),
+          TextButton(
+            child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Text(
+                  'Masuk Sebagai Admin',
+                  style: TextStyle(fontSize: 16, color: Colors.black),
+                )),
+            onPressed: () {
+              Navigator.pushNamed(context, '/HalamanAdmin');
+            },
+          )
         ],
       ),
     );

@@ -24,8 +24,7 @@ class _HalamanAdmin extends State<HalamanAdmin> {
         body: Center(
           child: FlatButton(
             onPressed: () {
-              Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => InputBerita()));
+              Navigator.pushNamed(context, '/InputBerita');
             },
             child: const Text(
               "Input Berita",

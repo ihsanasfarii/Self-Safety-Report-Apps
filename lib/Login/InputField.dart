@@ -58,7 +58,7 @@ class _InputFieldState extends State<InputField> {
             boxShadow: [
               BoxShadow(
                   color: Colors.black38,
-                  blurRadius: 25,
+                  blurRadius: 15,
                   offset: const Offset(0, 10))
             ],
             color: Color(0xfff1f1f5),
@@ -88,7 +88,7 @@ class _InputFieldState extends State<InputField> {
             boxShadow: [
               BoxShadow(
                   color: Colors.black38,
-                  blurRadius: 25,
+                  blurRadius: 15,
                   offset: const Offset(0, 10))
             ],
             color: Color(0xfff1f1f5),
@@ -114,11 +114,11 @@ class _InputFieldState extends State<InputField> {
           ),
         ),
         SizedBox(
-          height: 35,
+          height: 50,
         ),
         Container(
-          height: 60,
-          width: 150,
+          height: 50,
+          width: 130,
           margin: EdgeInsets.symmetric(horizontal: 50),
           decoration: BoxDecoration(
             boxShadow: [

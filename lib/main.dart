@@ -75,7 +75,7 @@ class MyApp extends StatelessWidget {
         '/pesan': (context) => pesan(),
         '/popupmessage': (context) => popupmessage(),
         '/FotoProfile': (context) => ayam(),
-        '/HalamanBeranda': (context) => HalamanAdmin(),
+        '/HalamanAdmin': (context) => HalamanAdmin(),
         '/InputBerita': (context) => InputBerita(),
       },
     );

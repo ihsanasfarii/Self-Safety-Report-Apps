@@ -10,7 +10,7 @@ class InputWrapper extends StatelessWidget {
       child: Column(
         children: <Widget>[
           SizedBox(
-            height: 20,
+            height: 50,
           ),
           Container(
             child: InputField(),

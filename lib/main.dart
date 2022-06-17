@@ -2,6 +2,7 @@ import 'dart:ffi';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:selfsafetyapp_test/Admin/InputBerita.dart';
 
 import 'Popup/popupmessage.dart';
 import 'Register/registrasi.dart';
@@ -13,7 +14,7 @@ import 'Message/pesan.dart';
 import 'Profile/FotoProfile.dart';
 import 'Login/InputField.dart';
 import 'Message/pesan.dart';
-
+import 'Admin/HalamanAdmin.dart';
 import 'package:flutter_responsive/flutter_responsive.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';

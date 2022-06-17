@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:selfsafetyapp_test/Admin/HalamanAdmin.dart';
 import 'package:selfsafetyapp_test/Beranda/TiledViewNews.dart';
 import 'package:selfsafetyapp_test/Beranda/slider.dart';
 import 'package:selfsafetyapp_test/Popup/popupmessage.dart';
@@ -27,21 +28,45 @@ class beranda extends StatelessWidget {
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (context) {
-                        return popupmessage();
-                      }));
-                    },
-                    child: Align(
-                        alignment: Alignment.topRight,
-                        child: Container(
-                          alignment: Alignment.center,
-                          height: 90,
-                          width: 52,
-                          child: SvgPicture.asset("assets/icon/Notif.svg"),
-                        )),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      // Expanded(
+                      //   child: new GestureDetector(
+                      //     onTap: () {
+                      //       Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      //           builder: (context) => HalamanAdmin()));
+                      //     },
+                      //     child: Align(
+                      //         alignment: Alignment.topRight,
+                      //         child: Container(
+                      //           alignment: Alignment.center,
+                      //           height: 90,
+                      //           width: 52,
+                      //           child: SvgPicture.asset("assets/icon/Notif.svg"),
+                      //         )),
+                      //   ),
+                      // ),
+                      Expanded(
+                        child: new GestureDetector(
+                          onTap: () {
+                            Navigator.of(context)
+                                .push(MaterialPageRoute(builder: (context) {
+                              return popupmessage();
+                            }));
+                          },
+                          child: Align(
+                              alignment: Alignment.topRight,
+                              child: Container(
+                                alignment: Alignment.center,
+                                height: 90,
+                                width: 52,
+                                child:
+                                    SvgPicture.asset("assets/icon/Notif.svg"),
+                              )),
+                        ),
+                      )
+                    ],
                   ),
                   Text(
                     "Ingin Periksa Bencana? Bergabunglah Bersama Kami",

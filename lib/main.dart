@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -54,36 +56,13 @@ Future<void> main() async {
     );
   }
 
-  runApp(MyApp());
+  runApp(Application());
 }
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const splashscreen(),
-        '/LoginPage': (context) => LoginPage(),
-        '/register': (context) => registrasi(),
-        '/beranda': (context) => beranda(),
-        '/ProfilePage': (context) => ProfilePage(
-              title: '',
-            ),
-        '/pesan': (context) => pesan(),
-        '/popupmessage': (context) => popupmessage(),
-        '/FotoProfile': (context) => ayam(),
-      },
-    );
-  }
-
-  FirebaseMessaging messaging = FirebaseMessaging.instance;
-  get value => InputField.value;
-}
-
-// Crude counter to make messages unique
-int _messageCount = 0;
+// class MyApp extends StatelessWidget {
+//   FirebaseMessaging messaging = FirebaseMessaging.instance;
+//   get value => InputField.value;
+// }
 
 class Application extends StatefulWidget {
   const Application({Key? key}) : super(key: key);
@@ -94,7 +73,9 @@ class Application extends StatefulWidget {
 class _Application extends State<Application> {
   String? _token;
 
-  void initState() {
+  @override
+  void iniState() {
+    asyncMethod();
     super.initState();
 
     FirebaseMessaging.instance
@@ -135,23 +116,47 @@ class _Application extends State<Application> {
     });
   }
 
+  asyncMethod() async {
+    await FirebaseMessaging.instance.subscribeToTopic('weather');
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Container(
-            height: double.infinity,
-            child: Column(
-              children: [
-                Container(
-                  width: double.infinity,
-                  height: MediaQuery.of(context).size.height * 0.735,
-                  child: ListView(
-                    children: [Container(margin: const EdgeInsets.all(10))],
-                  ),
-                )
-              ],
-            )));
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const splashscreen(),
+        '/LoginPage': (context) => LoginPage(),
+        '/register': (context) => registrasi(),
+        '/beranda': (context) => beranda(),
+        '/ProfilePage': (context) => ProfilePage(
+              title: '',
+            ),
+        '/pesan': (context) => pesan(),
+        '/popupmessage': (context) => popupmessage(),
+        '/FotoProfile': (context) => ayam(),
+      },
+    );
   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//         body: Container(
+//             height: double.infinity,
+//             child: Column(
+//               children: [
+//                 Container(
+//                   width: double.infinity,
+//                   height: MediaQuery.of(context).size.height * 0.735,
+//                   child: ListView(
+//                     children: [Container(margin: const EdgeInsets.all(10))],
+//                   ),
+//                 )
+//               ],
+//             )));
+//   }
 }
 
 class MessageArguments {

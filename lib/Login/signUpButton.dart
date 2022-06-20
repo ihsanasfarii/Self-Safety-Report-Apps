@@ -26,17 +26,7 @@ class SignUp extends StatelessWidget {
           SizedBox(
             height: 40,
           ),
-          TextButton(
-            child: Align(
-                alignment: Alignment.bottomLeft,
-                child: Text(
-                  'Masuk Sebagai Admin',
-                  style: TextStyle(fontSize: 16, color: Colors.black),
-                )),
-            onPressed: () {
-              Navigator.pushNamed(context, '/HalamanAdmin');
-            },
-          )
+
         ],
       ),
     );

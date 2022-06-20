@@ -28,15 +28,14 @@ class _InputFieldState extends State<InputField> {
     var dataAuth = json.decode(dataLogin.body);
 
     print(dataAuth);
+
     if (dataAuth.length == 0) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text("Data yang anda masukkan salah atau tidak ada")));
     } else {
       if (dataAuth.length != 0) {
-        Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (context) => ProfilePage(
-                  title: InputField.value,
-                )));
+        Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => beranda()));
       }
     }
   }

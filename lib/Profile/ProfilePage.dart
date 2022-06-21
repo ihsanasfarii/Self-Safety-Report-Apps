@@ -19,8 +19,8 @@ class _ProfilePageState extends State<ProfilePage> {
     super.initState();
   }
 
-  final String url = "http://192.168.43.179/ssra/ambildata.php";
-  final String urlAdd = "http://192.168.43.179/ssra/ambildata.php";
+  final String url = "http://10.128.59.61/ssra/ambildata.php";
+  final String urlAdd = "http://10.128.59.61/ssra/ambildata.php";
   final TextEditingController _title = TextEditingController();
   final TextEditingController _desc = TextEditingController();
   Future<List<dynamic>> fetchApi() async {

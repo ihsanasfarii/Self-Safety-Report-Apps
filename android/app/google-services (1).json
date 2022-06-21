@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "464315446084",
-    "project_id": "ssra-proting",
-    "storage_bucket": "ssra-proting.appspot.com"
+    "project_number": "977272773672",
+    "project_id": "ssr-app-d39af",
+    "storage_bucket": "ssr-app-d39af.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:464315446084:android:c723a980267c49d6e9dd11",
+        "mobilesdk_app_id": "1:977272773672:android:ba1f5fb75fefbf02c9691d",
         "android_client_info": {
           "package_name": "com.example.selfsafetyapp_test"
         }
       },
       "oauth_client": [
         {
-          "client_id": "464315446084-nai0k2bdsb7b2109a03u01621ttkvl8a.apps.googleusercontent.com",
+          "client_id": "977272773672-h3ves9jd1nd4chohue9fejenfrpac47p.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAvvueSUSYptg9hMEf1KJooiDF9Ygcktek"
+          "current_key": "AIzaSyCmGksXtNPSEyo_4TvWOGNcAGXO9XFesyE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "464315446084-nai0k2bdsb7b2109a03u01621ttkvl8a.apps.googleusercontent.com",
+              "client_id": "977272773672-h3ves9jd1nd4chohue9fejenfrpac47p.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

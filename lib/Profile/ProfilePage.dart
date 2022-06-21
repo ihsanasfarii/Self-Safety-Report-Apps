@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:selfsafetyapp_test/Login/InputField.dart';
 
 import '../navbar.dart';
 
@@ -18,8 +19,8 @@ class _ProfilePageState extends State<ProfilePage> {
     super.initState();
   }
 
-  final String url = "http://10.0.2.2/ssra/ambildata.php";
-  final String urlAdd = "http://10.0.2.2/ssra/ambildata.php";
+  final String url = "http://192.168.43.179/ssra/ambildata.php";
+  final String urlAdd = "http://192.168.43.179/ssra/ambildata.php";
   final TextEditingController _title = TextEditingController();
   final TextEditingController _desc = TextEditingController();
   Future<List<dynamic>> fetchApi() async {
@@ -50,7 +51,7 @@ class _ProfilePageState extends State<ProfilePage> {
             return ListView.builder(
               itemCount: snapshot.data.length,
               itemBuilder: (BuildContext context, int index) {
-                if (snapshot.data[index]['Nama'] == ayam) {
+                if (snapshot.data[index]['Nama'] == InputField.value) {
                   return Stack(children: <Widget>[
                     Stack(
                       clipBehavior: Clip.none,

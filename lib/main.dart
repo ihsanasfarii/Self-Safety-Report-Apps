@@ -1,4 +1,4 @@
-import 'dart:ffi';
+// import 'dart:html';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -20,105 +20,53 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  await Firebase.initializeApp();
-  print('Handling a background message ${message.messageId}');
-}
-
-late AndroidNotificationChannel channel;
-late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
-
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp();
+  await requestPermission();
 
-  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+  runApp(MyApp());
+}
 
-  if (!kIsWeb) {
-    channel = const AndroidNotificationChannel(
-      'high_importance_channel', // id
-      'High Importance Notifications', // title
+Future<void> requestPermission() async {
+  FirebaseMessaging messaging = FirebaseMessaging.instance;
 
-      importance: Importance.high,
-    );
+  NotificationSettings settings = await messaging.requestPermission(
+    alert: true,
+    announcement: false,
+    badge: true,
+    carPlay: false,
+    criticalAlert: false,
+    provisional: false,
+    sound: true,
+  );
 
-    flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
-
-    await flutterLocalNotificationsPlugin
-        .resolvePlatformSpecificImplementation<
-            AndroidFlutterLocalNotificationsPlugin>()
-        ?.createNotificationChannel(channel);
-
-    await FirebaseMessaging.instance
-        .setForegroundNotificationPresentationOptions(
-      alert: true,
-      badge: true,
-      sound: true,
-    );
+  if (settings.authorizationStatus == AuthorizationStatus.authorized) {
+    print('User granted permission');
+  } else if (settings.authorizationStatus == AuthorizationStatus.provisional) {
+    print('User granted provisional permission');
+  } else {
+    print('User declined or has not accepted permission');
   }
-
-  runApp(Application());
 }
 
-// class MyApp extends StatelessWidget {
-//   FirebaseMessaging messaging = FirebaseMessaging.instance;
-//   get value => InputField.value;
-// }
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
 
-class Application extends StatefulWidget {
-  const Application({Key? key}) : super(key: key);
   @override
-  State<Application> createState() => _Application();
+  State<MyApp> createState() => _MyAppState();
 }
 
-class _Application extends State<Application> {
-  String? _token;
+class _MyAppState extends State<MyApp> {
+  void initState() {
+    FirebaseMessaging.onMessage.listen((event) {
+      if (event.notification != null) {
+        print(event.notification!.title);
+      }
+    });
 
-  @override
-  void iniState() {
-    asyncMethod();
     super.initState();
-
-    FirebaseMessaging.instance
-        .getInitialMessage()
-        .then((RemoteMessage? message) {
-      if (message != null) {
-        Navigator.pushNamed(
-          context,
-          '/message',
-          arguments: MessageArguments(message, true),
-        );
-      }
-    });
-
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      RemoteNotification? notification = message.notification;
-      AndroidNotification? android = message.notification?.android;
-      if (notification != null && android != null && !kIsWeb) {
-        flutterLocalNotificationsPlugin.show(
-          notification.hashCode,
-          notification.title,
-          notification.body,
-          NotificationDetails(
-            android: AndroidNotificationDetails(
-              channel.id,
-              channel.name,
-              icon: 'launch_background',
-            ),
-          ),
-        );
-      }
-    });
-
-    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-      print('A new onMessageOpenedApp event was published!');
-      Navigator.pushNamed(context, '/message',
-          arguments: MessageArguments(message, true));
-    });
-  }
-
-  asyncMethod() async {
-    await FirebaseMessaging.instance.subscribeToTopic('weather');
   }
 
   @override
@@ -132,34 +80,14 @@ class _Application extends State<Application> {
         '/register': (context) => registrasi(),
         '/beranda': (context) => beranda(),
         '/ProfilePage': (context) => ProfilePage(
-              title: '',
+              title: InputField.value,
             ),
         '/pesan': (context) => pesan(),
         '/popupmessage': (context) => popupmessage(),
         '/FotoProfile': (context) => ayam(),
+        '/HalamanAdmin': (context) => HalamanAdmin(),
+        '/InputBerita': (context) => InputBerita(),
       },
     );
   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//         body: Container(
-//             height: double.infinity,
-//             child: Column(
-//               children: [
-//                 Container(
-//                   width: double.infinity,
-//                   height: MediaQuery.of(context).size.height * 0.735,
-//                   child: ListView(
-//                     children: [Container(margin: const EdgeInsets.all(10))],
-//                   ),
-//                 )
-//               ],
-//             )));
-//   }
-}
-
-class MessageArguments {
-  MessageArguments(RemoteMessage message, bool bool);
 }

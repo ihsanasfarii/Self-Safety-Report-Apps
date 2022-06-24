@@ -60,7 +60,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         Container(
                           color: Colors.grey,
                           child: Image.network(
-                            'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2144&q=80',
+                            'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
                             width: double.infinity,
                             height: coverHeight,
                             fit: BoxFit.cover,

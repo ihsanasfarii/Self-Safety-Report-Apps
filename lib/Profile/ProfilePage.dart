@@ -19,8 +19,8 @@ class _ProfilePageState extends State<ProfilePage> {
     super.initState();
   }
 
-  final String url = "http://10.128.59.61/ssra/ambildata.php";
-  final String urlAdd = "http://10.128.59.61/ssra/ambildata.php";
+  final String url = "http://192.168.37.170/ssra/ambildata.php";
+
   final TextEditingController _title = TextEditingController();
   final TextEditingController _desc = TextEditingController();
   Future<List<dynamic>> fetchApi() async {
@@ -30,7 +30,7 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   Future pushApi() async {
-    await http.post(Uri.parse(urlAdd), body: {
+    await http.post(Uri.parse(url), body: {
       'Nama': _title.text,
       'Email': _desc.text,
     });
@@ -38,7 +38,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   final double coverHeight = 900;
-  get ayam => widget.title;
 
   @override
   Widget build(BuildContext context) {

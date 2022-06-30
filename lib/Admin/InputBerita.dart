@@ -1,152 +1,179 @@
-import 'dart:convert';
+// main.dart
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:selfsafetyapp_test/Beranda/beranda.dart';
-import 'package:selfsafetyapp_test/Profile/ProfilePage.dart';
-import 'package:selfsafetyapp_test/helperurl.dart';
-import 'package:selfsafetyapp_test/Profile/FotoProfile.dart';
-import 'package:selfsafetyapp_test/main.dart';
+import 'package:selfsafetyapp_test/sql_helper.dart';
 
-class InputBerita extends StatefulWidget {
+class InputBerita extends StatelessWidget {
+  const InputBerita({Key? key}) : super(key: key);
+
   @override
-  _InputBerita createState() => _InputBerita();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        // Remove the debug banner
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.orange,
+        ),
+        home: const HomePage());
+  }
 }
 
-class _InputBerita extends State<InputBerita> {
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-            centerTitle: false,
-            title: const Text("Input Data Berita"),
-            actions: <Widget>[
-          Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Expanded(
-                child: Column(children: <Widget>[
-                  const Align(
-                    alignment: Alignment.topLeft,
-                    child: Text("Enter your data",
-                        style: TextStyle(
-                          fontSize: 24,
-                        )),
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  // All journals
+  List<Map<String, dynamic>> _journals = [];
+
+  bool _isLoading = true;
+  // This function is used to fetch all data from the database
+  void _refreshJournals() async {
+    final data = await SQLHelper.getItems();
+    setState(() {
+      _journals = data;
+      _isLoading = false;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _refreshJournals(); // Loading the diary when the app starts
+  }
+
+  final TextEditingController _titleController = TextEditingController();
+  final TextEditingController _descriptionController = TextEditingController();
+
+  // This function will be triggered when the floating button is pressed
+  // It will also be triggered when you want to update an item
+  void _showForm(int? id) async {
+    if (id != null) {
+      // id == null -> create new item
+      // id != null -> update an existing item
+      final existingJournal =
+          _journals.firstWhere((element) => element['id'] == id);
+      _titleController.text = existingJournal['title'];
+      _descriptionController.text = existingJournal['description'];
+    }
+
+    showModalBottomSheet(
+        context: context,
+        elevation: 5,
+        isScrollControlled: true,
+        builder: (_) => Container(
+              padding: EdgeInsets.only(
+                top: 15,
+                left: 15,
+                right: 15,
+                // this will prevent the soft keyboard from covering the text fields
+                bottom: MediaQuery.of(context).viewInsets.bottom + 120,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  TextField(
+                    controller: _titleController,
+                    decoration: const InputDecoration(hintText: 'News Title'),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextField(
+                    controller: _descriptionController,
+                    decoration: const InputDecoration(hintText: 'Description'),
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  Form(
-                      // key: _formKey,
-                      child: Expanded(
-                          child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: <Widget>[
-                        Expanded(
-                          child: TextFormField(
-                            decoration: const InputDecoration(
-                                labelText: 'First Name',
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(20.0)),
-                                  borderSide: BorderSide(
-                                      color: Colors.grey, width: 0.0),
-                                ),
-                                border: OutlineInputBorder()),
-                            onFieldSubmitted: (value) {
-                              setState(() {
-                                // firstName = value.capitalize();
-                                // firstNameList.add(firstName);
-                              });
-                            },
-                            onChanged: (value) {
-                              setState(() {
-                                // firstName = value.capitalize();
-                              });
-                            },
-                            validator: (value) {
-                              if (value == null ||
-                                  value.isEmpty ||
-                                  value.length < 3) {
-                                return 'First Name must contain at least 3 characters';
-                              } else if (value
-                                  .contains(RegExp(r'^[0-9_\-=@,\.;]+$'))) {
-                                return 'First Name cannot contain special characters';
-                              }
-                            },
+                  ElevatedButton(
+                    onPressed: () async {
+                      // Save new journal
+                      if (id == null) {
+                        await _addItem();
+                      }
+
+                      if (id != null) {
+                        await _updateItem(id);
+                      }
+
+                      // Clear the text fields
+                      _titleController.text = '';
+                      _descriptionController.text = '';
+
+                      // Close the bottom sheet
+                      Navigator.of(context).pop();
+                    },
+                    child: Text(id == null ? 'Create New' : 'Update'),
+                  )
+                ],
+              ),
+            ));
+  }
+
+// Insert a new journal to the database
+  Future<void> _addItem() async {
+    await SQLHelper.createItem(
+        _titleController.text, _descriptionController.text);
+    _refreshJournals();
+  }
+
+  // Update an existing journal
+  Future<void> _updateItem(int id) async {
+    await SQLHelper.updateItem(
+        id, _titleController.text, _descriptionController.text);
+    _refreshJournals();
+  }
+
+  // Delete an item
+  void _deleteItem(int id) async {
+    await SQLHelper.deleteItem(id);
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+      content: Text('Successfully deleted a news!'),
+    ));
+    _refreshJournals();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: _isLoading
+          ? const Center(
+              child: CircularProgressIndicator(),
+            )
+          : ListView.builder(
+              itemCount: _journals.length,
+              itemBuilder: (context, index) => Card(
+                color: Colors.orange[200],
+                margin: const EdgeInsets.all(15),
+                child: ListTile(
+                    title: Text(_journals[index]['title']),
+                    subtitle: Text(_journals[index]['description']),
+                    trailing: SizedBox(
+                      width: 100,
+                      child: Row(
+                        children: [
+                          IconButton(
+                            icon: const Icon(Icons.edit),
+                            onPressed: () => _showForm(_journals[index]['id']),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        TextFormField(
-                          decoration: const InputDecoration(
-                              labelText: 'Last Name',
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(20.0)),
-                                borderSide:
-                                    BorderSide(color: Colors.grey, width: 0.0),
-                              ),
-                              border: OutlineInputBorder()),
-                          validator: (value) {
-                            if (value == null ||
-                                value.isEmpty ||
-                                value.length < 3) {
-                              return 'Last Name must contain at least 3 characters';
-                            } else if (value
-                                .contains(RegExp(r'^[0-9_\-=@,\.;]+$'))) {
-                              return 'Last Name cannot contain special characters';
-                            }
-                          },
-                          onFieldSubmitted: (value) {
-                            setState(() {
-                              // lastName = value.capitalize();
-                              // // lastNameList.add(lastName);
-                            });
-                          },
-                          onChanged: (value) {
-                            setState(() {
-                              // lastName = value.capitalize();
-                            });
-                          },
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        TextFormField(
-                          decoration: const InputDecoration(
-                              labelText: 'Body Temperature',
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(20.0)),
-                                borderSide:
-                                    BorderSide(color: Colors.grey, width: 0.0),
-                              ),
-                              border: OutlineInputBorder()),
-                          keyboardType: TextInputType.number,
-                          validator: (value) {
-                            if (value == null ||
-                                value.isEmpty ||
-                                value.contains(RegExp(r'^[a-zA-Z\-]'))) {
-                              return 'Use only numbers!';
-                            }
-                          },
-                          onFieldSubmitted: (value) {
-                            setState(() {
-                              // bodyTemp = value;
-                              // // bodyTempList.add(bodyTemp);
-                            });
-                          },
-                          onChanged: (value) {
-                            setState(() {
-                              // bodyTemp = value;
-                            });
-                          },
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        )
-                      ])))
-                ]),
-              ))
-        ]));
+                          IconButton(
+                            icon: const Icon(Icons.delete),
+                            onPressed: () =>
+                                _deleteItem(_journals[index]['id']),
+                          ),
+                        ],
+                      ),
+                    )),
+              ),
+            ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: () => _showForm(null),
+      ),
+    );
   }
 }

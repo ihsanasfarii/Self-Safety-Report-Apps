@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:selfsafetyapp_test/Admin/HalamanAdmin.dart';
 import 'package:selfsafetyapp_test/Beranda/beranda.dart';
 import 'package:selfsafetyapp_test/Profile/ProfilePage.dart';
 import 'package:selfsafetyapp_test/helperurl.dart';
@@ -33,9 +34,16 @@ class _InputFieldState extends State<InputField> {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text("Data yang anda masukkan salah atau tidak ada")));
     } else {
-      if (dataAuth.length != 0) {
+      if (dataAuth.length != 0 &&
+          (emailUser.text == "admin" && passwordUser.text == "admin")) {
         Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => beranda()));
+            MaterialPageRoute(builder: (context) => HalamanAdmin()));
+      } else {
+        if (dataAuth.length != 0 &&
+            (emailUser.text != "admin" && passwordUser.text != "admin")) {
+          Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => beranda()));
+        }
       }
     }
   }

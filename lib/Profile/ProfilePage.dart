@@ -19,7 +19,7 @@ class _ProfilePageState extends State<ProfilePage> {
     super.initState();
   }
 
-  final String url = "http://192.168.37.170/ssra/ambildata.php";
+  final String url = "http://192.168.93.170/ssra/ambildata.php";
 
   final TextEditingController _title = TextEditingController();
   final TextEditingController _desc = TextEditingController();

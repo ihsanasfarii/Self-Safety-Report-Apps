@@ -59,6 +59,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  get value => InputField.value;
   void initState() {
     FirebaseMessaging.onMessage.listen((event) {
       if (event.notification != null) {
@@ -80,11 +81,10 @@ class _MyAppState extends State<MyApp> {
         '/register': (context) => registrasi(),
         '/beranda': (context) => beranda(),
         '/ProfilePage': (context) => ProfilePage(
-              title: InputField.value,
+              title: value,
             ),
         '/pesan': (context) => pesan(),
         '/popupmessage': (context) => popupmessage(),
-        '/FotoProfile': (context) => ayam(),
         '/HalamanAdmin': (context) => HalamanAdmin(),
         '/InputBerita': (context) => InputBerita(),
       },

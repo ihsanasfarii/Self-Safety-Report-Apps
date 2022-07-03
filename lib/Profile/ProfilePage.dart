@@ -19,7 +19,7 @@ class _ProfilePageState extends State<ProfilePage> {
     super.initState();
   }
 
-  final String url = "http://192.168.93.170/ssra/ambildata.php";
+  final String url = "http://192.168.18.206/ssra/ambildata.php";
 
   final TextEditingController _title = TextEditingController();
   final TextEditingController _desc = TextEditingController();
@@ -50,7 +50,7 @@ class _ProfilePageState extends State<ProfilePage> {
             return ListView.builder(
               itemCount: snapshot.data.length,
               itemBuilder: (BuildContext context, int index) {
-                if (snapshot.data[index]['Nama'] == InputField.value) {
+                if (snapshot.data[index]['Email'] == InputField.value) {
                   return Stack(children: <Widget>[
                     Stack(
                       clipBehavior: Clip.none,

@@ -29,13 +29,6 @@ class _ProfilePageState extends State<ProfilePage> {
     return data;
   }
 
-  Future pushApi() async {
-    await http.post(Uri.parse(url), body: {
-      'Nama': _title.text,
-      'Email': _desc.text,
-    });
-  }
-
   @override
   final double coverHeight = 900;
 
